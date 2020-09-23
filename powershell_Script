@@ -1,11 +1,11 @@
 function get-firstrecurringcharacter {
    [CmdletBinding()]
    param (
-     [string]$teststring
+     [string]$abcdedcba
    )
   $a = [ordered]@{}
   $b = [ordered]@{}
-  $teststring.ToLower().ToCharArray() |
+  $abcdedcba.ToLower().ToCharArray() |
    foreach {
      if ($a.$psitem) {
         $a.$psitem += 1
@@ -23,6 +23,6 @@ function get-firstrecurringcharacter {
   $b.GetEnumerator() |  select -First 1
 
 }
-$ts = 'teststring'
+$ts = 'abcdedcba'
 
-get-firstrecurringcharacter -teststring $ts
+get-firstrecurringcharacter -abcdedcba $ts
